@@ -14,6 +14,34 @@ An intelligent product search system with natural language processing capabiliti
 - **Location-Aware Delivery Estimates**
 - **Interactive Product Visualization**
 
+
+
+## Features ✨
+1. **Task A: Basic Item Search + Price Constraint**  
+   - **Prompt** - Find a floral skirt under 4000 Rupees in size S. Is it in stock, and can I apply a discount code ‘SAVE10’?
+
+https://github.com/user-attachments/assets/2eca1efd-5480-4f9d-ad27-e29df6dc9375
+     
+2. **Task B: Shipping Deadline**  
+   - **Prompt** - I need white sneakers (size 8) for under 6000 Rupees that can arrive by Friday.
+
+https://github.com/user-attachments/assets/8d65c0a5-a669-44c8-b4b1-1ac75ea5ac0b
+
+3. **Task C: Competitor Price Comparison**  
+   - **Prompt** - I found a ‘casual denim jacket’ at 6700 Rupees on SiteA. Any better deals?
+  
+https://github.com/user-attachments/assets/0484b0ba-bf18-4957-a84b-441ccea0fed2
+
+4. **Task D: Returns & Policies**  
+   - **Prompt** - I want to buy a cocktail dress from SiteB, but only if returns are hassle-free. Do they accept returns?
+
+https://github.com/user-attachments/assets/13a57e50-9e88-4502-a61f-fcfbb724fc3d
+
+5. **Task E: Combine multiple tool usages**  
+   - Streamlit UI Components
+
+
+
 ## Tech Stack 🛠️
 - **Backend**: Python 3.10+
 - **Database**: SQLite3
