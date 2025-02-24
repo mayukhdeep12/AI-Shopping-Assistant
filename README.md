@@ -58,10 +58,6 @@ https://github.com/user-attachments/assets/ac741ad9-c841-4618-bccf-209089e1b65e
 - **Automatic Tool Chain (ATC) – Writes Code to Solve Tasks**: ATC follows instructions to generate code, helping it use tools in a structured, step-by-step way.
 - **Language Agent Tree Search (LATS)**: LATS thinks ahead, mapping out different possible paths before choosing the best one. It also learns from trial and error.
 
-**Key Design Differences:**
-- **Memory**: Varies from prompt-based (ReAct/Toolformer) to full memory systems (LATS)
-- **Speed vs. Thoroughness**: Trade-off between quick responses and complex task handling
-
 #### 2. How They Think Through Problems
 - **ReAct** follows a simple loop: Think -> Act -> Observe -> Repeat
 - **Toolformer** recognizes when an API call is needed and inserts it at the right time.
