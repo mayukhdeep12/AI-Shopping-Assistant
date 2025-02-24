@@ -11,7 +11,7 @@ An intelligent product search system with natural language processing capabiliti
 - [Open Questions & References](#open-questions--references)
 - [Installation](#installation)
 
-## Tests ✨
+## Tests
 1. **Task A: Basic Item Search + Price Constraint**  
    - **Prompt** - Find a floral skirt under 4000 Rupees in size S. Is it in stock, and can I apply a discount code 'SAVE10'?
   
@@ -35,7 +35,7 @@ https://github.com/user-attachments/assets/ac741ad9-c841-4618-bccf-209089e1b65e
 5. **Task E: Combine multiple tool usages**  
    - Streamlit UI Components
 
-## Comparative Conceptual Map 🗺️
+## Comparative Conceptual Map
 
 ![ConMap](https://github.com/user-attachments/assets/f70feab9-209d-4c9c-b023-9ea2b141ebcc)
 
@@ -50,39 +50,38 @@ https://github.com/user-attachments/assets/ac741ad9-c841-4618-bccf-209089e1b65e
 
 ![Connection](https://github.com/user-attachments/assets/916cbfca-4c1f-4d46-9d1e-77dd9031581c)
 
-## Short Written Analysis 📊
+## Short Written Analysis
 
-### Comparative Analysis of LLM Tool-Use Approaches
 
-#### 1. Agent Design: What's the Recipe?
-- **ReAct**: Quick Thinker, Fast Action - Alternates between generating reasoning traces and task-specific actions
-- **Toolformer**: Knows APIs by Heart - Uses internal knowledge to reason about tool usage
-- **Automatic Tool Chain (ATC)**: The Code Writer - Reads code instructions and writes programs for tool usage
-- **Language Agent Tree Search (LATS)**: The Planner - Plans multiple paths and learns from practice
+#### 1. How They Work: The Basic Idea
+- **ReAct – Think and Do on the Spot**: ReAct quickly switches between thinking and taking action. It figures out what to do, does it, then looks at the result before deciding the next step.
+- **Toolformer – Knows Which Tool to Use**: Toolformer is trained to recognize when and how to use different tools (like APIs) based on its internal knowledge.
+- **Automatic Tool Chain (ATC) – Writes Code to Solve Tasks**: ATC follows instructions to generate code, helping it use tools in a structured, step-by-step way.
+- **Language Agent Tree Search (LATS) – LATS thinks ahead, mapping out different possible paths before choosing the best one. It also learns from trial and error.
 
 **Key Design Differences:**
 - **Memory**: Varies from prompt-based (ReAct/Toolformer) to full memory systems (LATS)
 - **Speed vs. Thoroughness**: Trade-off between quick responses and complex task handling
 
-#### 2. Reasoning Steps: How Do They Think?
-- **ReAct**: Quick "Think, Act, See" loop
-- **Toolformer**: Learned API call identification
-- **ATC**: Programmatic step-by-step execution
-- **LATS**: Multiple option planning and testing
+#### 2. How They Think Through Problems
+- **ReAct** follows a simple loop: Think -> Act -> Observe -> Repeat
+- **Toolformer** recognizes when an API call is needed and inserts it at the right time.
+- **ATC** breaks tasks into small steps and writes code to complete them.
+- **LATS** tests multiple strategies, refines them, and improves over time.
 
-#### 3. Tool Use: What Tools Do They Grab?
-- **ReAct**: Various API calls
-- **Toolformer**: Predefined API calls
-- **ATC**: API calls and code generation
-- **LATS**: External data focused
+#### 3. How They Use Tools
+- **ReAct** can call different APIs as needed.
+- **Toolformer** only uses APIs it was trained on.
+- **ATC** can both use APIs and generate new code when needed.
+- **LATS** relies on external data and testing different approaches.
 
-#### 4. Real-World Usefulness
-- **ReAct**: Excels with good prompts/APIs
-- **Toolformer**: Strong API timing decisions
-- **ATC**: Automated tool creation
-- **LATS**: Excellent for learning-based tasks
+#### 4. Which One is Best?
+- **ReAct** is fast and works well with clear prompts and good APIs.
+- **Toolformer** is smart about using APIs at the right time.
+- **ATC** is great for automating tasks that need code.
+- **LATS** is the best choice for tasks that require learning and planning over time.
 
-## Design Decisions 🧠
+## Design Decisions
 
 ### Agent Architecture
 
