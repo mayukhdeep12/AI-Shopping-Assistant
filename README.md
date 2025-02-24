@@ -8,7 +8,6 @@ An intelligent product search system with natural language processing capabiliti
 - [Short Written Analysis](#short-written-analysis)
 - [Design Decisions](#design-decisions)
 - [Challenges & Improvements](#challenges--improvements)
-- [Open Questions & References](#open-questions--references)
 - [Installation](#installation)
 
 ## Tests
@@ -57,7 +56,7 @@ https://github.com/user-attachments/assets/ac741ad9-c841-4618-bccf-209089e1b65e
 - **ReAct – Think and Do on the Spot**: ReAct quickly switches between thinking and taking action. It figures out what to do, does it, then looks at the result before deciding the next step.
 - **Toolformer – Knows Which Tool to Use**: Toolformer is trained to recognize when and how to use different tools (like APIs) based on its internal knowledge.
 - **Automatic Tool Chain (ATC) – Writes Code to Solve Tasks**: ATC follows instructions to generate code, helping it use tools in a structured, step-by-step way.
-- **Language Agent Tree Search (LATS) – LATS thinks ahead, mapping out different possible paths before choosing the best one. It also learns from trial and error.
+- **Language Agent Tree Search (LATS)**: LATS thinks ahead, mapping out different possible paths before choosing the best one. It also learns from trial and error.
 
 **Key Design Differences:**
 - **Memory**: Varies from prompt-based (ReAct/Toolformer) to full memory systems (LATS)
@@ -115,41 +114,22 @@ results = orchestrator.execute_tools(tools, constraints)
 
 ## Challenges & Improvements
 
-### Technical Challenges
-1. **Fuzzy Matching Optimization**
-   - Token-based scoring with adjustable thresholds
+### Challenges
+1. **User Intent**
+   - Figuring out what the user really wanted was tricky. People don't always type perfect queries. We had to teach the system to recognize whether they were asking about shipping, refunds, searching for something specific, or comparing prices, even with imperfect wording.
+2. **LLM Quirks**
+   - Plugging in the LLM (the AI brain) was cool, but it wasn't perfect. Sometimes it'd give weird summaries or take too long. Making sure the LLM gave concise, useful info in a reasonable time was a challenge.
+  
+### Improvements
+1. **Intent**
+   - We used regular expressions (fancy text pattern matching) to better understand the user's intent. This helped us steer the search in the right direction.
+2. **Fuzzy Matching**
+   - Instead of just looking for exact matches, we used "fuzzy matching." This means we could find products even if the user's search term was slightly off "airpod pro" instead of "AirPods Pro"
+3. **Location**
+   - We added code to detect cities and extract date information from the search query, to make sure we gave a relevant result.
+4. **AI Recommendations**
+   - If no matches found, it generates recommendation based on your prompt.
 
-2. **LLM Latency Management**
-   - Predictive loading animations
-
-3. **Data Integrity**
-   - Comprehensive DB validation
-
-4. **Cross-Platform Comparison**
-   - Normalized product variant matching
-
-## Open Questions & References
-
-### Open Questions
-1. **Ambiguous Query Handling**
-   - Dynamic price-range estimation
-   - Context-aware interpretation
-
-2. **Multi-Platform Inventory Sync**
-   - API rate limit management
-   - Cross-platform data ethics
-
-3. **LLM Hallucination Mitigation**
-   - Grounding techniques
-   - Fluency vs. data fidelity
-
-4. **Personalization vs Privacy**
-   - Anonymous profiling
-   - DPDPA compliance
-
-5. **Regional Language Support**
-   - Hinglish query processing
-   - Low-latency architecture
 
 ### Research References
 
