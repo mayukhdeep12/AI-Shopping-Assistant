@@ -32,7 +32,11 @@ https://github.com/user-attachments/assets/e8cb3021-0bfc-4e7d-9849-8cde8154cc2e
 https://github.com/user-attachments/assets/ac741ad9-c841-4618-bccf-209089e1b65e
 
 5. **Task E: Combine multiple tool usages**  
-   - Streamlit UI Components
+   - **Prompt** - I want to buy a Sony WH-1000XM4 in Bangalore.  What is the shipping cost?
+
+https://github.com/user-attachments/assets/dab97746-ac2c-4364-a936-21a714f09fc8
+
+To Check more test prompts go to [Prompts.md](https://github.com/mayukhdeep12/smart-product-search/blob/main/Prompts.md)
 
 ## Comparative Conceptual Map
 
