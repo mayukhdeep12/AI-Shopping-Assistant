@@ -3,17 +3,6 @@
 
 An intelligent product search system with natural language processing capabilities that provides detailed product information, price comparisons, and policy insights across multiple e-commerce platforms.
 
-## Features ✨
-- **Natural Language Query Understanding**
-- **Multi-Platform Price Comparison**
-- **AI-Powered Summaries** (LLM Integration)
-- **Dynamic Shipping Cost Calculator**
-- **Smart Promo Code Application**
-- **Location-Aware Delivery Estimates**
-- **Interactive Product Visualization**
-
-
-
 ## Tests ✨
 1. **Task A: Basic Item Search + Price Constraint**  
    - **Prompt** - Find a floral skirt under 4000 Rupees in size S. Is it in stock, and can I apply a discount code ‘SAVE10’?
@@ -37,83 +26,7 @@ https://github.com/user-attachments/assets/13a57e50-9e88-4502-a61f-fcfbb724fc3d
 
 5. **Task E: Combine multiple tool usages**  
    - Streamlit UI Components
-
-
-
-## Tech Stack 🛠️
-- **Backend**: Python 3.10+
-- **Database**: SQLite3
-- **NLP**: Ollama (LLM Integration)
-- **UI Framework**: Streamlit
-- **Fuzzy Matching**: fuzzywuzzy
-- **Data Handling**: SQLAlchemy-style ORM
-
-## Installation ⚙️
-```bash
-git clone https://github.com/yourusername/smart-product-search.git
-cd smart-product-search
-pip install -r requirements.txt
-python create_db.py
-streamlit run app.py
-```
-
-## Design Decisions 🧠
-
-### Agent Architecture
-1. **Input Processor**  
-   - Intent Detection (Regex Pattern Matching)
-   - Location Context Extraction
-   - Date/Time Parsing Module
-2. **Search Engine**  
-   - Fuzzy Text Matching (Levenshtein Distance)
-   - Dynamic Filter Chaining (Price/Size/Color)
-   - Relevance Scoring System
-3. **Data Orchestrator**  
-   - SQLite3 Connection Pooling
-   - Policy Manager (Shipping/Refund)
-   - Promo Code Validator
-4. **AI Integration Layer**  
-   - Ollama LLM Gateway
-   - Summary Generation Pipeline
-   - Comparison Analyzer
-5. **Presentation Layer**  
-   - Streamlit UI Components
-   - Interactive Visual Builder
-   - Real-Time Update Handler
-
-### Tool Selection Rationale
-| Component | Technology Choice | Rationale |
-|-----------|-------------------|-----------|
-| Database | SQLite3 | Lightweight embedded solution for structured product data |
-| NLP | Ollama LLM | Open-source model for commercial-free summarization |
-| UI | Streamlit | Rapid prototyping of data-centric interfaces |
-| Matching | fuzzywuzzy | Cost-effective fuzzy string matching implementation |
-| Caching | Session State | Context preservation across user interactions |
-
-## Challenges & Improvements 🚧
-
-### Technical Challenges
-1. **Fuzzy Matching Optimization**  
-   - Implemented token-based scoring with adjustable thresholds
-2. **LLM Latency Management**  
-   - Added predictive loading animations
-3. **Data Integrity**  
-   - Comprehensive DB validation checks
-4. **Cross-Platform Comparison**  
-   - Normalized product variant matching
-
-### Potential Enhancements
-```mermaid
-graph TD
-    A[Current System] --> B[Add Real Inventory API]
-    A --> C[Implement User Accounts]
-    A --> D[Enhanced Visual Search]
-    A --> E[Multi-Language Support]
-    B --> F[Live Stock Updates]
-    C --> G[Personalized Recommendations]
-    D --> H[Image Similarity Search]
-```
-
+  
 ## Comparative Conceptual Map 🗺️
 
 ![Group 672](https://github.com/user-attachments/assets/efc82fd0-e5ae-4af1-a0e9-98da59633ed4)
@@ -123,80 +36,8 @@ graph TD
 3. Toolformer -> LATS: Toolformer's emphasis on selecting the most useful tools during its various stages of reasoning inspires LATS' use of evaluation methods as in MCTS.
 4. Overlapping Idea: Reflection. The LATS approach shares much the same structure as ReAct, however a key is to integrate reflection. Reflexion was introduced to provide a verbal self-reflection that summarizes the errors in the reasoning or acting process and proposes superior alternatives.
 
-```mermaid
-graph TD
-    %% Central Node
-    LLM_Agent((LLM Agent))
+![pako_eNqVVm1P4zAM_itRECeQNrbRAaMf7rQbcCANDgH34a6bqrC6W0WbTGkLGxP__dyk7xsD8mWxEz-P7djuVnQiHKAmnUo2n5GHsxEnuHZ3yQB4JJlPbvBcK4fDa7s_RfXeHm6J2u7vj3hucsUnIvD4lNxKEcwjrc-UtlZatUutBxY-jTdeJc3m94K0xPMghI-XI5BsEnkiPUi09kDw0](https://github.com/user-attachments/assets/e815c0c4-8945-4bab-9bf2-aaba1bc86d8c)
 
-    %% Incoming Prompt
-    Incoming_Prompt[Incoming Prompt/Task]
-    Incoming_Prompt --> LLM_Agent
-
-    %% Tool Interaction
-    Tool_Consideration{Consider: Tool Use Necessary?}
-    LLM_Agent --> Tool_Consideration
-
-    subgraph ToolSelection [Tool Selection and Interaction - Conditional]
-        direction TB
-        ToolSelection_Reasoning[Tool Selection Reasoning]
-        Tool_Consideration -- Yes --> ToolSelection_Reasoning
-
-        subgraph Action[Action]
-
-            Select_Tool[Select Tool]
-            ToolSelection_Reasoning --> Select_Tool
-
-            Argument_Generation[Argument Generation: Craft API Call/Program]
-            Select_Tool --> Argument_Generation
-
-            Tool_Execution[Tool Execution: Get Result/Observation]
-            Argument_Generation --> Tool_Execution
-
-            subgraph Result_Handling[Result Handling]
-               Process_Results[Process results]
-               Process_Results --> Store_in_Memory{Store in Memory or Feedback?}
-            end
-
-            Tool_Execution --> Process_Results
-
-            Store_in_Memory -- Memory --> ToolSelection_Reasoning
-            Store_in_Memory -- Observation --> Reflection_and_SelfImprovement
-        end
-
-    end
-
-    Tool_Consideration -- No --> Final_Answer
-
-    LLM_Agent -- Action --> Final_Answer[Final Answer]
-
-    subgraph Feedback_Loop [Feedback & Learning]
-        direction TB
-        Reflection_and_SelfImprovement[Reflection/Self-Improvement]
-
-        External_Feedback[External Feedback : Human/Auto Eval]
-        Result_Handling --> External_Feedback
-
-        SynthesizeFeedback[Synthesize Feedback]
-        External_Feedback -->SynthesizeFeedback
-
-        Tool_Probing[Tool Probing - AutoToolChain]
-        SynthesizeFeedback --New Tool Learned --> Tool_Probing
-
-        SynthesizeFeedback --> LLM_Agent
-
-    end
-
-    style LLM_Agent fill:#f9f,stroke:#333,stroke-width:2px
-    style ToolSelection_Reasoning fill:#ffc,stroke:#333,stroke-width:1px
-    style Select_Tool fill:#ddf,stroke:#333,stroke-width:1px
-    style Argument_Generation fill:#ddf,stroke:#333,stroke-width:1px
-    style Tool_Execution fill:#ddf,stroke:#333,stroke-width:1px
-    style Process_Results fill:#ffc,stroke:#333,stroke-width:1px
-    style Reflection_and_SelfImprovement fill:#edd,stroke:#333,stroke-width:1px
-    style Action stroke:#333,stroke-width:2px
-    style Result_Handling stroke:#333,stroke-width:2px
-    style Feedback_Loop stroke:#333,stroke-width:2px
-```
 
 # Short Written Analysis 📊
 
@@ -254,6 +95,110 @@ Here's a breakdown of the reasoning processes:
 *   **LATS:** Excellent for tasks that involve trial, feedback and long-term learning.
 
 This analysis should help understand the high-level differences. See the paper for specific details!
+
+## Design Decisions 🧠
+
+### Agent Architecture
+
+![pako_eNqdV1FP4zgQ_itWVvsGK9pC6fbhTlyB00pw4rbsnXSBB5M4rUVqR46zUAr__SYZO4njlHapkPA4830ez2eP7U0QyZgF02ChaLYkt3_cCQK_z5_JNeWCfBNZocllKp-w_0fO1N8FU-uwbJGqeU8OD38jV1fXN0pGLM-l2oCB30jd94YENX3pYj5yscDuvHjAMODjFV0zFbpepOq8R](https://github.com/user-attachments/assets/13e20746-8301-4249-878f-0ce09abfab71)
+
+# Smart Product Search Agent: Design & Process Flow
+
+## 1. Input Processing Layer
+
+### Query Analysis
+- **Intent Detection**
+
+### Constraint Extraction
+- **Price Constraints**
+- **Size/Color/Date Constraints**
+
+## 2. Tool Selection Process
+
+### Tool Matching Logic
+
+### Tool Categories
+
+1. **Price Comparison Tool**
+   - Database querying for local prices
+   - API calls to external platforms
+   - Price history analysis
+
+2. **Inventory Checker**
+   - Real-time stock verification
+   - Size/variant availability
+   - Store location checking
+
+3. **Shipping Calculator**
+   - Delivery time estimation
+   - Cost calculation
+   - Location-based routing
+
+4. **Policy Checker**
+   - Return policy verification
+   - Warranty information
+   - Discount applicability
+
+## 3. Execution Layer
+
+### Data Orchestration
+
+## 4. Response Generation
+
+### Response Building Process
+1. **Data Aggregation**
+   - Combine results from multiple tools
+   - Filter relevant information
+   - Sort by relevance
+
+2. **Natural Language Generation**
+
+3. **Response Formatting**
+   - Structure information hierarchically
+   - Include relevant details
+   - Format for presentation
+
+## Example Query Flow
+
+### Input: "Find a floral skirt under 4000 Rupees in size S"
+
+1. **Query Analysis**
+   - Product: floral skirt
+   - Price constraint: < 4000
+   - Size constraint: S
+
+2. **Tool Selection**
+   - PriceComparisonTool
+   - InventoryChecker
+   - ProductSearchTool
+
+3. **Execution**
+   ```python
+   tools = select_tools(query_type, constraints)
+   results = orchestrator.execute_tools(tools, constraints)
+   ```
+
+4. **Response**
+   - Available products matching criteria
+   - Price comparisons
+   - Stock availability
+   - Shipping options
+
+## Challenges & Improvements 🚧
+
+### Technical Challenges
+1. **Fuzzy Matching Optimization**  
+   - Implemented token-based scoring with adjustable thresholds
+2. **LLM Latency Management**  
+   - Added predictive loading animations
+3. **Data Integrity**  
+   - Comprehensive DB validation checks
+4. **Cross-Platform Comparison**  
+   - Normalized product variant matching
+
+
+
+
 
 ## Open Questions & References 📚
 
@@ -324,3 +269,12 @@ Compliant with NASSCOM Web Scraping Guidelines (2021) and DPDPA (2023) regulatio
 **Future Directions**  
 - Integration of HinglishBERT (IIT Bombay, 2020) for regional queries
 - Exploration of ethical price tracking mechanisms per NASSCOM (2021)
+
+## Installation ⚙️
+```bash
+git clone https://github.com/yourusername/smart-product-search.git
+cd smart-product-search
+pip install -r requirements.txt
+python create_db.py
+streamlit run app.py
+```
