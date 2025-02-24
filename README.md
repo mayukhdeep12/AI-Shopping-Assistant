@@ -139,12 +139,32 @@ results = orchestrator.execute_tools(tools, constraints)
 
 
 ## Installation
+
+Follow these steps to set up the Smart Product Search application:
+
+1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/smart-product-search.git
-cd smart-product-search
-install Ollama https://ollama.com/download
-Once Ollama (Llama3.2 3B) is installed go to cmd and type - ollama run llama3.2
+git clone Repository_Link
+```
+
+2. Navigate to the project directory:
+```bash
+cd Repository_Folder
+```
+
+3. Install Ollama:
+- Download from: https://ollama.com/download
+- After installation, run Llama3.2 3B model in cmd:
+```bash
+ollama run llama3.2
+```
+
+4. Install Python dependencies:
+```bash
 pip install -r requirements.txt
-python create_db.py
-streamlit run app.py
+```
+
+5. Start the Streamlit application:
+```bash
+streamlit run agent.py
 ```
