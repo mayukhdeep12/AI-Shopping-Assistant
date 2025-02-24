@@ -40,13 +40,13 @@ https://github.com/user-attachments/assets/ac741ad9-c841-4618-bccf-209089e1b65e
 ![ConMap](https://github.com/user-attachments/assets/f70feab9-209d-4c9c-b023-9ea2b141ebcc)
 
 ### Connections
-1. **ReAct -> LATS**: LATS builds directly upon the ReAct framework by using the ReAct method as the basis of its agent architecture, and expands on that with a search over a combinatorial space of possible reasoning and acting steps, and adds reflection. The basic structure of a multi-step loop guided by internal reasoning, external actions, and subsequent observation is preserved and then augmented.
+1. **ReAct -> LATS: Smarter Planning**: LATS is built on top of ReAct. It takes ReAct’s simple Think -> Act -> Observe loop and makes it more advanced. Instead of just reacting step by step, LATS explores different possible solutions before choosing the best one. It also adds a new ability: reflection, meaning it looks back at past mistakes and improves its strategy.
 
-2. **ReAct -> AutoToolChain**: AutoToolChain adapts the interaction method of ReAct but is more focused on using program synthesis for chained tool execution, and for automated tool learning and schema identification. The basic structure of a multi-step loop guided by internal reasoning, external actions, and subsequent observation is preserved.
+2. **ReAct -> AutoToolChain: More Focus on Code**: AutoToolChain (ATC) also follows ReAct’s Think -> Act -> Observe process but uses it in a more structured way. Instead of just making API calls, ATC writes code to automate tool use. It also learns how to create and connect tools, making it more flexible for complex tasks.
 
-3. **Toolformer -> LATS**: Toolformer's emphasis on selecting the most useful tools during its various stages of reasoning inspires LATS' use of evaluation methods as in MCTS.
+3. **Toolformer -> LATS: Smarter Tool Choices**: Toolformer is all about picking the right tools at the right time. LATS takes this idea further—it evaluates different actions (just like how Toolformer picks APIs) and searches for the best possible path forward, similar to a strategy game.
 
-4. **Reflection**: The LATS approach shares much the same structure as ReAct, however a key is to integrate reflection. Reflexion was introduced to provide a verbal self-reflection that summarizes the errors in the reasoning or acting process and proposes superior alternatives.
+4. **Reflection: The Key Upgrade in LATS**: What really makes LATS special is reflection. While ReAct just moves forward step by step, LATS pauses to analyze what went wrong, learns from it, and adjusts its approach for better results in the future.
 
 ![Connection](https://github.com/user-attachments/assets/916cbfca-4c1f-4d46-9d1e-77dd9031581c)
 
@@ -113,7 +113,7 @@ tools = select_tools(query_type, constraints)
 results = orchestrator.execute_tools(tools, constraints)
 ```
 
-## Challenges & Improvements 🚧
+## Challenges & Improvements
 
 ### Technical Challenges
 1. **Fuzzy Matching Optimization**
@@ -128,7 +128,7 @@ results = orchestrator.execute_tools(tools, constraints)
 4. **Cross-Platform Comparison**
    - Normalized product variant matching
 
-## Open Questions & References 📚
+## Open Questions & References
 
 ### Open Questions
 1. **Ambiguous Query Handling**
@@ -158,7 +158,7 @@ results = orchestrator.execute_tools(tools, constraints)
 4. Gupta, P., & Rao, R. (2022). "Design Patterns for Tier-2 Cities" - ACM CHI India
 5. Patel, R., & Shah, M. (2019). "Blockchain Inventory Synchronization" - IEEE IoT Journal
 
-## Installation ⚙️
+## Installation
 ```bash
 git clone https://github.com/yourusername/smart-product-search.git
 cd smart-product-search
