@@ -152,11 +152,11 @@ results = orchestrator.execute_tools(tools, constraints)
    - Low-latency architecture
 
 ### Research References
-1. Chen, Q., et al. (2021). "BERT-Based Hybrid Model for Intent Classification" - IEEE Transactions on NLP
-2. Kumar, A., & Joshi, S. (2020). "Adaptive Thresholding for Fuzzy Matching" - ACM SIGIR Conference
-3. Li, L., et al. (2023). "Retail-LLM: Knowledge Distillation" - arXiv:2308.12345
-4. Gupta, P., & Rao, R. (2022). "Design Patterns for Tier-2 Cities" - ACM CHI India
-5. Patel, R., & Shah, M. (2019). "Blockchain Inventory Synchronization" - IEEE IoT Journal
+
+1. [BERT-Based Hybrid RNN Model for Multi-class Text Classification to Study the Effect of Pre-trained Word Embeddings](https://thesai.org/Downloads/Volume13No9/Paper_79-BERT_Based_Hybrid_RNN_Model.pdf)
+2. [A Fuzzy Approach to Approximate String Matching for Text Retrieval in NLP](https://www.researchgate.net/publication/333249900_A_Fuzzy_Approach_to_Approximate_String_Matching_for_Text_Retrieval_in_NLP)
+3. [A Survey on Knowledge Distillation of Large Language Models](https://arxiv.org/pdf/2402.13116)
+
 
 ## Installation
 ```bash
